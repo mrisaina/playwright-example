@@ -1,13 +1,13 @@
 import { faker } from "@faker-js/faker";
 import { test, expect, APIResponse } from "@playwright/test";
-import { defaultEmail, login } from "../../playwright/auth";
-import { saveSelections, submittedReports } from "../../playwright/report";
+import { defaultEmail, login } from "../utils/auth";
+import { saveSelections, submittedReports } from "../utils/report";
 
 test.describe("share report with all items", async () => {
-  let _responseReports: any;
+  let _responseReports: APIResponse;
   let _responseShare: APIResponse;
-  let _responseJson: any;
-  let _responseShareText: any;
+  let _responseJson: object;
+  let _responseShareText: string;
 
   test.beforeAll(async ({ request, baseURL }) => {
     _responseJson = await login({ request, baseURL });
@@ -57,10 +57,10 @@ test.describe("share report with all items", async () => {
 });
 
 test.describe("cannot share report with not selected items via only selected option", async () => {
-  let _responseReports: any;
+  let _responseReports: APIResponse;
   let _responseShare: APIResponse;
-  let _responseJson: any;
-  let _responseShareText: any;
+  let _responseJson: object;
+  let _responseShareText: string;
 
   test.beforeAll(async ({ request, baseURL }) => {
     _responseJson = await login({ request, baseURL });
@@ -119,10 +119,10 @@ test.describe("cannot share report with not selected items via only selected opt
 });
 
 test.describe("share report with only selected items", async () => {
-  let _responseReports: any;
+  let _responseReports: APIResponse;
   let _responseShare: APIResponse;
-  let _responseJson: any;
-  let _responseShareText: any;
+  let _responseJson: object;
+  let _responseShareText: string;
 
   test.beforeAll(async ({ request, baseURL }) => {
     _responseJson = await login({ request, baseURL });
