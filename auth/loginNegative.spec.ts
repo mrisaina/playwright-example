@@ -10,11 +10,11 @@ test.describe("login with invalid data", () => {
 
   dataLogin.forEach((el, i) => {
     let _responseNeg: APIResponse;
-    let _responseJson: any;
-    let _responseText: any;
-    let headers: any;
-    let start: any;
-    let end: any;
+    let _responseJson: object;
+    let _responseText: string;
+    let headers: object;
+    let start: number;
+    let end: number;
 
     test.beforeAll(async ({ request, baseURL }) => {
       start = new Date();
