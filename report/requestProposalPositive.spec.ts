@@ -1,19 +1,19 @@
 import { faker } from "@faker-js/faker";
-import { test, expect } from "@playwright/test";
-import { defaultEmail, login } from "../../playwright/auth";
+import { test, expect, APIResponse } from "@playwright/test";
+import { defaultEmail, login } from "../utils/auth";
 import {
   requestRepairs,
   saveSelections,
   submittedReports,
-} from "../../playwright/report";
+} from "../utils/report";
 
 test.describe("get file statuses", async () => {
-  let _responseProposal: any;
-  let _responseReports: any;
-  let _responseJson: any;
-  let _responseProposalJson: any;
-  let start: any;
-  let end: any;
+  let _responseProposal: APIResponse;
+  let _responseReports:  APIResponse;
+  let _responseJson: object;
+  let _responseProposalJson: object;
+  let start: number;
+  let end: number;
 
   test.beforeAll(async ({ request, baseURL }) => {
     _responseJson = await login({ request, baseURL });
@@ -93,30 +93,4 @@ test.describe("get file statuses", async () => {
     expect(Object.keys(headers)).toContain("content-type");
     expect(headers["content-type"]).toContain("application/json");
   });
-
-  // test("check the response props", async () => {
-  //   _responseProposalJson.forEach((file) => {
-  //     const props = Object.keys(file);
-  //     expect(props).toContain("serviceCategory");
-  //     expect(props).toContain("minimumPrice");
-  //     expect(props).toContain("repairItems");
-
-  //     file.repairItems.forEach((item) => {
-  //       const props = Object.keys(item);
-  //       expect(props).toContain("id");
-  //       expect(props).toContain("transactID");
-  //       expect(props).toContain("repair");
-  //       expect(props).toContain("page");
-  //       expect(props).toContain("code");
-  //       expect(props).toContain("contractor");
-  //       expect(props).toContain("itemCode");
-  //       expect(props).toContain("item");
-  //       expect(props).toContain("action");
-  //       expect(props).toContain("dPrice");
-  //       expect(props).toContain("images");
-  //       expect(props).toContain("isChecked");
-  //       expect(props).toContain("taxonomy");
-  //     });
-  //   });
-  // });
 });
