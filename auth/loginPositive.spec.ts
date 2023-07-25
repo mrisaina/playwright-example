@@ -4,8 +4,8 @@ import { defaultEmail } from "../utils/auth";
 test.describe("login with valid data", () => {
   let _response: APIResponse;
   let _responseJson: object;
-  let start: number;
-  let end: number;
+  let start: Date;
+  let end: Date;
 
   test.beforeAll(async ({ request, baseURL }) => {
     start = new Date();
