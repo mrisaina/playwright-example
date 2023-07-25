@@ -13,8 +13,8 @@ test.describe("login with invalid data", () => {
     let _responseJson: object;
     let _responseText: string;
     let headers: object;
-    let start: number;
-    let end: number;
+    let start: Date;
+    let end: Date;
 
     test.beforeAll(async ({ request, baseURL }) => {
       start = new Date();
