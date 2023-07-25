@@ -1,11 +1,11 @@
 import { test, expect, APIResponse } from "@playwright/test";
-import { defaultEmail } from "../../playwright/auth";
+import { defaultEmail } from "../utils/auth";
 
 test.describe("login with valid data", () => {
   let _response: APIResponse;
-  let _responseJson: any;
-  let start: any;
-  let end: any;
+  let _responseJson: object;
+  let start: number;
+  let end: number;
 
   test.beforeAll(async ({ request, baseURL }) => {
     start = new Date();
