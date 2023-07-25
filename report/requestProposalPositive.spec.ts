@@ -12,8 +12,8 @@ test.describe("get file statuses", async () => {
   let _responseReports:  APIResponse;
   let _responseJson: object;
   let _responseProposalJson: object;
-  let start: number;
-  let end: number;
+  let start: Date;
+  let end: Date;
 
   test.beforeAll(async ({ request, baseURL }) => {
     _responseJson = await login({ request, baseURL });
